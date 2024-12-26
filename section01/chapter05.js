@@ -17,7 +17,7 @@ function checkMood(mood, type){
 }
 
 //콜백처리
-function checkMood2(mood,goodCallback, badCallback){
+function checkMood2(mood, goodCallback, badCallback){
     if(mood === "good"){
         goodCallback();
     }else{

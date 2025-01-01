@@ -1,0 +1,27 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.list > .search > input, .list > .search > select{
+    padding: 10px;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.list > .search > input{
+    width: 76%;
+}
+
+.list > input:focus{
+    outline: 0;
+    border-bottom: 1px soid rgb(58, 92, 245);
+}
+
+.list > .item{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

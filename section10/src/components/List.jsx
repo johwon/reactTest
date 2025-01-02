@@ -34,7 +34,7 @@ const List = ({todos, onUpdate, onDelete})=>{
     //     return {totalCount, doneCount, notDoneCount}
     // };
     const {totalCount, doneCount, notDoneCount} = useMemo(()=>{
-        console.log("getAnalyzeData 호출");
+        // console.log("getAnalyzeData 호출");
         const totalCount = todos.length;
         //이부분이 문제(불필요한 필터기능)
         const doneCount = todos.filter((item)=>{

@@ -2,7 +2,7 @@ import './List.css'
 import ListItem from './ListItem'
 import { useState, useMemo } from 'react'
 
-const List = ({diaries, onUpdate, onDelete})=>{
+const List = ({diaries, onUpdate, onDelete, onUpdateContent})=>{
     const [search,setSearch] = useState('');
 
     const onChangeSearch = (e)=>{
@@ -35,7 +35,7 @@ const List = ({diaries, onUpdate, onDelete})=>{
 
     return(
         <div className='list'>
-            <h4>History</h4>
+            <h4>History💫</h4>
             <div className='search'>
                 <select>
                     <option value="writer">작성자</option>
@@ -46,7 +46,7 @@ const List = ({diaries, onUpdate, onDelete})=>{
             </div>
             <div className='item'>
                 {filterItem.map((item)=>{
-                    return <ListItem key={item.id} {...item} onUpdate={onUpdate} onDelete={onDelete}/>
+                    return <ListItem key={item.id} {...item} onUpdate={onUpdate} onUpdateContent={onUpdateContent} onDelete={onDelete}/>
                 })}
             </div>
         </div>

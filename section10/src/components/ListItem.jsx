@@ -1,6 +1,8 @@
 import './ListItem.css'
+import { memo } from 'react';
 
 const ListItem = ({id,isDone,content,date, onUpdate, onDelete})=>{
+    console.log(`listitem ${id}`);
     const onChangeCheckBox = ()=>{
         onUpdate(id);
     }
@@ -18,4 +20,17 @@ const ListItem = ({id,isDone,content,date, onUpdate, onDelete})=>{
     )
 }
 
-export default ListItem;
+//고차컴포넌트(HOC:Higher order component)
+/*
+export default memo(ListItem, (prevProps, nextProps)=>{
+    //memo 이전값과 현재값을 비교한다. 
+    //return false -> 리랜더링 발생
+    //return true - > 리랜더링 발생x
+    if(prevProps.id !== nextProps.id) return false;
+    if(prevProps.isDone !== nextProps.isDone) return false;
+    if(prevProps.content !== nextProps.content) return false;
+    if(prevProps.date !== nextProps.date) return false;
+    return true;
+});
+*/
+export default memo(ListItem);

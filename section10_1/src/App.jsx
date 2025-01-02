@@ -38,6 +38,8 @@ function reducer(state, action){
       return [action.data, ...state];
     case 'UPDATE': 
       return state.map((item)=>{return item.id===action.data ? {...item,isDone:!item.isDone} : item});
+    case 'UPDATECONTENT': 
+      return state.map((item)=>{return item.id===action.data.targetId ? {...item,content:action.data.content} : item});
     case 'DELETE': 
       return state.filter((item)=>{
         return item.id!==action.data
@@ -73,14 +75,14 @@ function App() {
     });
   }
   
-  const onUpdateContent = (i,w,t,c)=>{
-    // const left = document.querySelector(".left");
-    // left.style
-    // return(
-    //   <div>
-    //     <input>인풋</input>
-    //   </div>
-    // )
+  const onUpdateContent = (i,c)=>{
+    dispatch({
+      type:"UPDATECONTENT",
+      data:{
+        targetId:i,
+        content:c,
+      }
+    })
   }
 
   // 레코드 삭제 처리하는 핸들러함수

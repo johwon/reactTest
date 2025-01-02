@@ -2,6 +2,9 @@ import './ListItem.css'
 
 const ListItem = ({id, writer, title, content, isDone, date, onUpdate,onUpdateContent, onDelete})=>{
     const onChangeContent = ()=>{
+        const String = prompt('변경 내용을 입력하세요');
+        console.log(String);
+        onUpdateContent(id,String);
         // return (
         //     <div>
         //         <input type='text' value={writer}  placeholder='작성자 입력...'/>
@@ -12,6 +15,7 @@ const ListItem = ({id, writer, title, content, isDone, date, onUpdate,onUpdateCo
         // )
         // onUpdateContent(id, writer, title, content);
     }
+    
     const onChangeChecked = ()=>{
         onUpdate(id);
     }
@@ -29,7 +33,7 @@ const ListItem = ({id, writer, title, content, isDone, date, onUpdate,onUpdateCo
                 <p className='date'>{new Date(date).toLocaleDateString()}</p>
             </div>
             <div className='listItemButton'>
-                {/* <button onClick={onChangeContent}>수정</button> */}
+                <button onClick={onChangeContent}>수정</button>
                 <button onClick={onClickItem}>삭제</button>
             </div>
         </div>

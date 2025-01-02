@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Editor from './components/Editor'
 import List from './components/List'
 import Exam from './components/Exam'
-import { useState, useRef, useReducer, act } from 'react'
+import { useState, useRef, useReducer, useCallback } from 'react'
 
 //가상의 데이터(마운트:서버에서 데이터를 가져온다(Ajax json))
 const mockData = [
@@ -32,7 +32,7 @@ function reducer(state, action){
     case 'INSERT':
       return [action.data, ...state];
     case 'UPDATE': 
-      return state.map((item)=>{return item.id===action.data ? {...item,isDone:!item.isDone} : item});
+      return state.map((item)=> item.id===action.data ? {...item,isDone:!item.isDone} : item);
     case 'DELETE': 
       return state.filter((item)=>{
         return item.id!==action.data
@@ -47,7 +47,20 @@ function App() {
   const idRef = useRef(3);
 
   //todos 추가할 레코드 처리하는 핸들러함수
-  const onInsert = (data)=>{
+  // const onInsert = (data)=>{
+  //   dispatch({
+  //     type:"INSERT",
+  //     data:{
+  //       id: idRef.current++,
+  //       isDone: false,
+  //       content: data,
+  //       date: new Date().getTime(),
+  //     }
+  //   });
+  // }
+
+  //useEffect useCallback 해당되는 콜백함수를 마운트할때 딱 한번 실행한다
+  const onInsert = useCallback((data)=>{
     dispatch({
       type:"INSERT",
       data:{
@@ -57,23 +70,38 @@ function App() {
         date: new Date().getTime(),
       }
     });
-  }
+  },[])
+
 
   //todos 레코드 수정 처리하는 핸들러함수
-  const onUpdate = (targetId)=>{
+  // const onUpdate = (targetId)=>{
+  //   dispatch({
+  //     type:"UPDATE",
+  //     data:targetId,
+  //   });
+  // }
+
+  const onUpdate = useCallback((targetId)=>{
     dispatch({
       type:"UPDATE",
       data:targetId,
     });
-  }
+  },[])
 
   //todos 레코드 삭제 처리하는 핸들러함수
-  const onDelete = (targetId)=>{
+  // const onDelete = (targetId)=>{
+  //   dispatch({
+  //     type:"DELETE",
+  //     data:targetId,
+  //   });
+  // };
+
+  const onDelete = useCallback((targetId)=>{
     dispatch({
       type:"DELETE",
       data:targetId,
     });
-  };
+  },[])
 
   return (
     <div className='app'>

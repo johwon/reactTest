@@ -1,0 +1,30 @@
+.list{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* .list > div{
+    margin: 30px 0px;
+} */
+
+.listBar{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.listBar input, select{
+    padding: 10px;
+    border: 1px solid rgb(212, 211, 211);
+    border-radius: 5px;
+}
+
+.listTop > table{
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px 10px;
+    display: flex;
+    background-color: rgb(212, 229, 253);;
+    border-radius: 5px;
+    text-align: left;
+}

@@ -1,0 +1,18 @@
+.button{
+    font-size: 18px;
+    font-weight: bold;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    color: whitesmoke;
+    margin-top: 10px;
+}
+
+.button > button{
+    background-color: black;
+}
+
+.button_blue{
+    background-color: rgb(112, 172, 255);
+}

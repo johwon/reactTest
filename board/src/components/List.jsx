@@ -65,9 +65,9 @@ const List = ({data})=>{
             </div>
             <div className="listTop">
                 <table>
-                    <td width={'700px'}>글제목</td>
+                    <td width={'750px'}>글제목</td>
                     <td width={'200px'}>작성자</td>
-                    <td width={'200px'}>작성일</td>
+                    <td width={'100px'}>작성일</td>
                 </table>
             </div>
             <div>

@@ -5,9 +5,9 @@ const ListItem = ({id,title,writer,createdDate})=>{
     const nav = useNavigate();
     return(
         <div className="listItem" onClick={()=>{nav(`/board/${id}`)}}>
-                <td width={'700px'}>{title}</td>
+                <td width={'750px'}>{title}</td>
                 <td width={'200px'}>{writer}</td>
-                <td width={'200px'}>{new Date(createdDate).toLocaleDateString()}</td>
+                <td width={'100px'}>{new Date(createdDate).toLocaleDateString()}</td>
             </div>
     )
 }
